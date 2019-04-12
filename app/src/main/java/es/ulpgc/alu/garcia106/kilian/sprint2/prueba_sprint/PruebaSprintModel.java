@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentActivity;
 public class PruebaSprintModel implements PruebaSprintContract.Model {
 
   public static String TAG = PruebaSprintModel.class.getSimpleName();
+  int i = 0;
 
   public PruebaSprintModel() {
 
@@ -18,6 +19,12 @@ public class PruebaSprintModel implements PruebaSprintContract.Model {
   @Override
   public String fetchData() {
     // Log.e(TAG, "fetchData()");
-    return "Hello";
+    if (i < 9) {
+      i++;
+    } else {
+      i = 0;
+    }
+    return "" + i;
   }
 }
+

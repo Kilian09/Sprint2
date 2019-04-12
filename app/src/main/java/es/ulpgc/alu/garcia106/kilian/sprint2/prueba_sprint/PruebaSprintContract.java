@@ -18,6 +18,8 @@ interface PruebaSprintContract {
     void injectRouter(Router router);
 
     void fetchData();
+
+    void onIncrementarButtonClicked();
   }
 
   interface Model {

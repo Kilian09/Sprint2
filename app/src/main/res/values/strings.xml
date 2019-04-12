@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Sprint2</string>
+    <string name="incrementar_button_label">Incrementar</string>
 </resources>

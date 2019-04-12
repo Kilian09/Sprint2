@@ -54,6 +54,11 @@ public class PruebaSprintPresenter implements PruebaSprintContract.Presenter {
     view.get().displayData(viewModel);
 
   }
-
+  @Override
+  public void onIncrementarButtonClicked() {
+    String s = model.fetchData();
+    viewModel.data = s;
+    fetchData();
+  }
 
 }
