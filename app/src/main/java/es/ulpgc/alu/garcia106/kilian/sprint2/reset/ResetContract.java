@@ -1,13 +1,13 @@
-package es.ulpgc.alu.garcia106.kilian.sprint2.prueba_sprint;
+package es.ulpgc.alu.garcia106.kilian.sprint2.reset;
 
 import java.lang.ref.WeakReference;
 
-interface PruebaSprintContract {
+interface ResetContract {
 
   interface View {
     void injectPresenter(Presenter presenter);
 
-    void displayData(PruebaSprintViewModel viewModel);
+    void displayData(ResetViewModel viewModel);
   }
 
   interface Presenter {
@@ -19,11 +19,7 @@ interface PruebaSprintContract {
 
     void fetchData();
 
-    void onIncrementarButtonClicked();
-
-    void startResetScreen();
-
-
+    void startPresenterSprintScreen();
   }
 
   interface Model {
@@ -31,10 +27,10 @@ interface PruebaSprintContract {
   }
 
   interface Router {
-    void navigateToResetScreen();
+    void navigateToPruebaSprintScreen();
 
-    void passDataToResetScreen(PruebaSprintState state);
+    void passDataToNextScreen(ResetState state);
 
-    PruebaSprintState getDataFromPreviousScreen();
+    ResetState getDataFromPruebaSprintScreen();
   }
 }

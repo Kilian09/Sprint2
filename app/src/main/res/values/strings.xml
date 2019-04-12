@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Sprint2</string>
     <string name="incrementar_button_label">Incrementar</string>
+    <string name="go_reset_label">Go Reset</string>
+    <string name="click_text_label">Veces Clicks</string>
+    <string name="reset_text_label">Reset</string>
 </resources>

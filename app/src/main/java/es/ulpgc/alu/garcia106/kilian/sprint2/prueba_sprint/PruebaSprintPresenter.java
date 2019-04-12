@@ -61,4 +61,8 @@ public class PruebaSprintPresenter implements PruebaSprintContract.Presenter {
     fetchData();
   }
 
+  @Override
+  public void startResetScreen() {
+    router.navigateToResetScreen();
+  }
 }

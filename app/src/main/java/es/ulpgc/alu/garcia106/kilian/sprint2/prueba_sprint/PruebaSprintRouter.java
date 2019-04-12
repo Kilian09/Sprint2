@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.alu.garcia106.kilian.sprint2.app.AppMediator;
+import es.ulpgc.alu.garcia106.kilian.sprint2.reset.ResetActivity;
 
 public class PruebaSprintRouter implements PruebaSprintContract.Router {
 
@@ -17,14 +18,14 @@ public class PruebaSprintRouter implements PruebaSprintContract.Router {
   }
 
   @Override
-  public void navigateToNextScreen() {
+  public void navigateToResetScreen() {
     Context context = mediator.getApplicationContext();
-    Intent intent = new Intent(context, PruebaSprintActivity.class);
+    Intent intent = new Intent(context, ResetActivity.class);
     context.startActivity(intent);
   }
 
   @Override
-  public void passDataToNextScreen(PruebaSprintState state) {
+  public void passDataToResetScreen(PruebaSprintState state) {
     mediator.setPruebaSprintState(state);
   }
 

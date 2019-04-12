@@ -18,16 +18,25 @@ public class PruebaSprintActivity
 
   TextView textView;
   Button incrementarButton;
+  Button goReset;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_prueba_sprint);
 
-    getSupportActionBar().setTitle("Contador Screen");
+    getSupportActionBar().setTitle("Counter");
 
     incrementarButton = findViewById(R.id.incrementarButton);
     textView = findViewById(R.id.textView);
+    goReset = findViewById(R.id.goReset);
+
+    goReset.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        presenter.startResetScreen();
+      }
+    });
 
     // do the setup
     PruebaSprintScreen.configure(this);
