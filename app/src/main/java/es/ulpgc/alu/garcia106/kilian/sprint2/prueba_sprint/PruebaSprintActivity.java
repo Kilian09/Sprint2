@@ -31,6 +31,13 @@ public class PruebaSprintActivity
     textView = findViewById(R.id.textView);
     goReset = findViewById(R.id.goReset);
 
+    incrementarButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        presenter.incrementar();
+      }
+    });
+
     goReset.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -61,9 +68,5 @@ public class PruebaSprintActivity
 
     // deal with the data
     ((TextView) findViewById(R.id.textView)).setText(viewModel.data);
-  }
-
-  public void onIncrementarButtonPressed(View view) {
-    presenter.onIncrementarButtonClicked();
   }
 }

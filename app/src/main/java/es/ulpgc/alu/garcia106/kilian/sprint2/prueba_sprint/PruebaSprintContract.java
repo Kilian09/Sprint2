@@ -19,7 +19,7 @@ interface PruebaSprintContract {
 
     void fetchData();
 
-    void onIncrementarButtonClicked();
+    void incrementar();
 
     void startResetScreen();
 
@@ -28,6 +28,14 @@ interface PruebaSprintContract {
 
   interface Model {
     String fetchData();
+
+    void incrementar();
+
+    void addClicks();
+
+    String getClicks();
+
+    String getIncremento();
   }
 
   interface Router {

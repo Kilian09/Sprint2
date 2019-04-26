@@ -32,21 +32,16 @@ public class ResetActivity
     reset.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        presenter.startPresenterSprintScreen();
+        presenter.startPreviousScreen();
       }
     });
 
     // do the setup
     ResetScreen.configure(this);
-  }
 
-  @Override
-  protected void onResume() {
-    super.onResume();
-
-    // do some work
     presenter.fetchData();
   }
+
 
   @Override
   public void injectPresenter(ResetContract.Presenter presenter) {

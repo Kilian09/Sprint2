@@ -7,14 +7,16 @@ import java.lang.ref.WeakReference;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.FragmentActivity;
 
+import es.ulpgc.alu.garcia106.kilian.sprint2.data.Repository;
+
 public class ResetModel implements ResetContract.Model {
 
   public static String TAG = ResetModel.class.getSimpleName();
 
-  int i = 0;
+  public Repository repository;
 
-  public ResetModel() {
-
+  public ResetModel(Repository repository) {
+    this.repository = repository;
   }
 
   @Override
@@ -22,6 +24,12 @@ public class ResetModel implements ResetContract.Model {
     // Log.e(TAG, "fetchData()");
 
     return "hello";
+  }
+
+  @Override
+  public void resetAll(){
+    repository.setClicks("0");
+    repository.setIncremento("0");
   }
 }
 

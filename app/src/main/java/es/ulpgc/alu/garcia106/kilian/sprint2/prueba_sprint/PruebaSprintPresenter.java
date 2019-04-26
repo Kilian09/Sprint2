@@ -40,29 +40,38 @@ public class PruebaSprintPresenter implements PruebaSprintContract.Presenter {
     PruebaSprintState state = router.getDataFromPreviousScreen();
     if (state != null) {
       viewModel.data = state.data;
-    }
-
-    if (viewModel.data == null) {
+    }else{
       // call the model
-      String data = model.fetchData();
-
-      // set initial state
-      viewModel.data = data;
+      viewModel.data = model.fetchData();
     }
-
     // update the view
     view.get().displayData(viewModel);
 
   }
   @Override
-  public void onIncrementarButtonClicked() {
-    String s = model.fetchData();
-    viewModel.data = s;
-    fetchData();
+  public void incrementar() {
+model.incrementar();
+model.addClicks();
+
+String incremento = model.getIncremento();
+    String clicks = model.getClicks();
+
+    PruebaSprintState state = router.getDataFromPreviousScreen();
+    state.data = incremento;
+    state.clicks = clicks;
+    router.passDataToResetScreen(state);
+
+    viewModel.data = state.data;
+    view.get().displayData(viewModel);
   }
 
   @Override
   public void startResetScreen() {
+    PruebaSprintState state = router.getDataFromPreviousScreen();
+    state.data = model.getIncremento();
+    state.clicks = model.getClicks();
+    router.passDataToResetScreen(state);
+
     router.navigateToResetScreen();
   }
 }

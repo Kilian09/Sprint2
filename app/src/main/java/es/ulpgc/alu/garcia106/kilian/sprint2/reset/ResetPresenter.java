@@ -4,6 +4,8 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.alu.garcia106.kilian.sprint2.prueba_sprint.PruebaSprintState;
+
 public class ResetPresenter implements ResetContract.Presenter {
 
   public static String TAG = ResetPresenter.class.getSimpleName();
@@ -37,7 +39,7 @@ public class ResetPresenter implements ResetContract.Presenter {
     // Log.e(TAG, "fetchData()");
 
     // set passed state
-    ResetState state = router.getDataFromPruebaSprintScreen();
+    PruebaSprintState state = router.getPruebaSprintState();
     if (state != null) {
       viewModel.data = state.data;
     }
@@ -56,7 +58,12 @@ public class ResetPresenter implements ResetContract.Presenter {
   }
 
   @Override
-  public void startPresenterSprintScreen() {
-    router.navigateToPruebaSprintScreen();
+  public void startPreviousScreen() {
+    model.resetAll();
+    PruebaSprintState state = router.getPruebaSprintState();
+    state.data = "0";
+    state.clicks = "0";
+    router.passDataToNextScreen(state);
+    router.navigateToPreviewScreen();
   }
 }
